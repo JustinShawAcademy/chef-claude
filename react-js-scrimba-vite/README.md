@@ -8,7 +8,7 @@ src
 ├── components
 │   └── Header
 │       ├── Header.css
-│       └── Header.jsx
+│       └── Header.module.css
 ├── index.css
 └── main.jsx
 ```
@@ -73,6 +73,50 @@ export default function App() {
         <Header />
         </>
     )
+}
+```
+
+### `Header.module.css` (component styling)
+- **what it does**: Normal css files have `.css` at the end of it so what does `.module.css` do. If we were to use `"./Header.css"` instead in our `Header.jsx` file, Vite doesn't "lock" that CSS to that component. It just takes the code and puts it into a global stylesheet in the browser. This creates an issue since if `"./Header.css"` says `img { width: 50px; }`, **every** `img` in the whole app becomes 50px. Therefore, we use `Header.module.css` the build tool (Vite) treats it differently. It stops being a global file and becomes a JavaScript Object. 
+
+- **how it works**:
+  1. Unique Naming (Hashing): When you build your app, Vite takes a class like `.card` and renames it to something random like `_card_1af2z`.
+  2. Mapping: It creates an object where the key is your original name (`card`) and the value is the new hashed name (`_card_1af2z`).
+
+```jsx
+// Header.jsx
+import styles from "./Header.module.css";
+
+function Header() {
+  return (
+    // 'styles.card' will evaluate to the unique hashed name
+    <div className={styles.card}>
+       <img className={styles.profileImg} src="..." />
+    </div>
+  );
+}
+```
+
+- **aditional benifits**: 
+  - **Autocomplete**: When typing `styles.` in VS Code, it will actually list all the classes available in that CSS file.
+  - **Confidence**: deleting a class in CSS immediately shows where it was used in JS.
+
+> Note: CSS Modules only scope class names, not HTML tags. **Use classes for everything**.
+
+> Note: CSS classes often use hyphens (e.g., `.journal-entry`). In JavaScript, you can't use a dot with a hyphen (`styles.journal-entry` would break). Therefore, many developers switch to camelCase (e.g., `.journalEntry`) in Modules to avoid this.
+
+> Note: When applying two classes from the module, use a Template Literal:
+```jsx
+<div className={`${styles.card} ${styles.active}`}>
+```
+
+> Note: Use `composes` to reuse styles from one class into another within the same file:
+```jsx
+.base-button { padding: 10px; border: none; }
+
+.submit-button {
+  composes: base-button;
+  background: green;
 }
 ```
 
