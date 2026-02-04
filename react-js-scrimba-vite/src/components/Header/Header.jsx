@@ -1,9 +1,11 @@
 import styles from './Header.module.css'
+import chefClaudeIcon from '../../assets/chef-claude-icon.svg'
 
 export default function Header() {
     return (
-        <header>
-            <p>test</p>
+        <header className={styles.headerContainer}>
+            <img className={styles.headerImage} src={chefClaudeIcon}/>
+            <h1 className={styles.headerTitle}>Chef Claude</h1>
         </header>
     )
 }
