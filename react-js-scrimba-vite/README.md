@@ -124,3 +124,33 @@ function Header() {
 - **what it does**: This file is for styles that should apply to the entire website.
   - Examples: CSS resets (removing default margins), setting the default font for the whole page, or defining background colors for the `<body>`.
   - Recall that this will be imported by `main.jsx`.
+We will also use `index.css` to define a **container pattern** with the `.container` class. This will seperate the content layout (the width) from the background styling (the section color).
+
+To do the seperation, we wrap the component content in a `<Container />` class.
+
+Example:
+`src/components/Container.jsx`
+```jsx 
+export default function Container({ children }) {
+  return (
+    <div className="container">
+      {children}
+    </div>
+  )
+}
+```
+
+You can use it anywhere:
+```jsx
+import Container from "./Container"
+
+function Header() {
+  return (
+    <header style={{ backgroundColor: "#f4f4f4" }}>
+      <Container>
+         <nav>...</nav>
+      </Container>
+    </header>
+  )
+}
+```
