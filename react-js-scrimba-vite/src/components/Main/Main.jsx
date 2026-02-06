@@ -31,13 +31,20 @@ export default function Main() {
                     />
                     <button>Add ingredient</button>
                 </form>
-                
+                {ingredients.length > 0 &&
                 <section>
-                    <h2>Ingredients on hand: </h2>
-                    <ul>
+                    <h2 className={styles.ingredientHandTitle}>Ingredients on hand: </h2>
+                    <ul className={styles.ingredientsList}>
                         {ingredientsListItems}
                     </ul>
-                </section>
+                    <div className={styles.getRecipeContainer}>
+                        <div>
+                            <h3>Ready for a recipe?</h3>
+                            <p>Generate a recipe from your list of ingredients.</p>
+                        </div>
+                        <button>Get a recipe</button>
+                    </div>
+                </section>}
             </Container>
         </main>
     )
