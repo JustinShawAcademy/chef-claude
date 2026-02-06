@@ -52,6 +52,7 @@ ul.ingredientsList > li {
     border-radius: 8px;
     background: #F0EFEB;
     padding: 24px 32px;
+    margin-bottom: 48px;
 }
 
 .getRecipeContainerr h3 {
@@ -76,3 +77,25 @@ ul.ingredientsList > li {
     font-size: 0.875rem;
     cursor: pointer;
 }
+
+/* Place holder */
+.suggestedRecipeContainer {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.suggestedRecipeContainer p {
+    padding: 16px;
+}
+
+.suggestedRecipeContainer ul , .suggestedRecipeContainer ol {
+    margin-bottom: 16px;
+}
+
+.suggestedRecipeContainer ul li, .suggestedRecipeContainer ol li {
+    margin-bottom: 8px;
+}
+
+/* End */
