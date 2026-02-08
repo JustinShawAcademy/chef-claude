@@ -1,0 +1,21 @@
+/* Place holder */
+.suggestedRecipeContainer {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.suggestedRecipeContainer p {
+    padding: 16px;
+}
+
+.suggestedRecipeContainer ul , .suggestedRecipeContainer ol {
+    margin-bottom: 16px;
+}
+
+.suggestedRecipeContainer ul li, .suggestedRecipeContainer ol li {
+    margin-bottom: 8px;
+}
+
+/* End */
