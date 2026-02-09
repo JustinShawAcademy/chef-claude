@@ -45,9 +45,10 @@ export default function Main() {
                     toggleClaudeRecipe={getClaudeRecipe}
                 />}
 
+                {claudeRecipe &&
                 <ClaudeRecipe 
                     claudeRecipe={claudeRecipe}
-                />
+                />}
 
             </Container>
         </main>

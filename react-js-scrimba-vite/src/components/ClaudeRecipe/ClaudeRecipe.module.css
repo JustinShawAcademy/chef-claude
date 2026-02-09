@@ -1,4 +1,3 @@
-/* Place holder */
 .suggestedRecipeContainer {
     color: #475467;
     line-height: 28px;
@@ -6,16 +5,20 @@
     font-weight: 400;
 }
 
-.suggestedRecipeContainer p {
-    padding: 16px;
-}
-
-.suggestedRecipeContainer ul , .suggestedRecipeContainer ol {
-    margin-bottom: 16px;
-}
-
 .suggestedRecipeContainer ul li, .suggestedRecipeContainer ol li {
     margin-bottom: 8px;
 }
 
-/* End */
+.suggestedRecipeContainer h3, .suggestedRecipeContainer h4 {
+    margin-bottom: 4px;
+}
+
+/* Targets the last item in both <ul> and <ol> */
+.suggestedRecipeContainer ul li:last-child, 
+.suggestedRecipeContainer ol li:last-child {
+    margin-bottom: 16px; /* Set your custom margin here */
+}
+
+.suggestedRecipeContainer p {
+    margin-bottom: 16px;
+}
