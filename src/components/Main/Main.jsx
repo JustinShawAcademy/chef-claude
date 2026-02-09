@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './Main.module.css'
 
 import { getRecipeFromMistral } from '../../ai.js'
@@ -11,6 +11,14 @@ export default function Main() {
 
     const [ingredients, setIngredients] = useState([])
     const [claudeRecipe, setClaudeRecipe] = useState()
+    const recipeSection = useRef(null) // Think of this 'referencing' a DOM node. Use in useEffct
+
+    // useEffect because of side effects
+    useEffect(() => {
+        if (claudeRecipe !== '' && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({behavior: "smooth"})
+        }
+    }, [claudeRecipe])
 
     function addIngredient(formData) {
         const submittedIngredient = formData.get("ingredient")
@@ -41,6 +49,7 @@ export default function Main() {
                 </form>
                 {ingredients.length > 0 &&
                 <IngredientsList 
+                    ref={recipeSection}
                     ingredients={ingredients}                    
                     toggleClaudeRecipe={getClaudeRecipe}
                 />}
