@@ -1,3 +1,8 @@
+# Chef Claude
+
+![App screenshot](./docs/hero.png)
+
+
 When working on a react vite project, the file structure should look something like this:
 
 ```
