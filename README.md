@@ -1,5 +1,6 @@
 # Chef Claude
 Website: [live](https://justinshawacademy.github.io/chef-claude/) 
+
 ![App screenshot](./docs/hero.png)
 
 
